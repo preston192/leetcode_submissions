@@ -1,0 +1,22 @@
+# Last updated: 4/8/2026, 5:13:20 PM
+class Solution(object):
+    def isPalindrome(self, s):
+        # Initialize two pointers: left and right.
+        left, right = 0, len(s) - 1
+        
+        while left < right:
+            # Skip non-alphanumeric characters from the left.
+            while left < right and not s[left].isalnum():
+                left += 1
+            # Skip non-alphanumeric characters from the right.
+            while left < right and not s[right].isalnum():
+                right -= 1
+            
+            # Compare the characters, ignoring case.
+            if s[left].lower() != s[right].lower():
+                return False
+            
+            left += 1
+            right -= 1
+        
+        return True
